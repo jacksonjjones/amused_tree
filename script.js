@@ -1,6 +1,9 @@
   var currentDayEl = $('#currentDay');
+  var saveBtnEl = $('.saveBtn')
+  var timeBlockEl = $('.time-block')
+  var descriptionEl = $('.description')
 
-  $('.saveBtn').click(function(){
+  saveBtnEl.click(function(){
 
     var timeBlockId = $(this).parent().attr('id');
     var userInput = $(this).siblings('.description').val();
@@ -12,7 +15,7 @@
       },2000);
   });
   
-  $('.time-block').each(function() {
+  timeBlockEl.each(function() {
       var currentHour = dayjs().hour();
       var blockHour = parseInt($(this).attr('id').split("-")[1]);
 
@@ -25,7 +28,7 @@
       }
   });
 
-  $(".description").each(function() {
+  descriptionEl.each(function() {
     var timeBlockId = $(this).parent().attr("id");
     var savedData = localStorage.getItem(timeBlockId);
     if (savedData) {
